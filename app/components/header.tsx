@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="flex w-full justify-between  items-center">
+    <div className="flex w-full px-10 h-[90px] relative border-b border-neutral-800 justify-between items-center">
       <h1 className="text-3xl font-bold">
         Publica <span className="text-sm">Docs</span>
       </h1>
@@ -13,6 +13,8 @@ const Header = () => {
           <button>Signup</button>
         </div>
       </div>
+
+      <div className="absolute w-full h-full top-0 left-0 bg-neutral-900/80 backdrop-blur-lg -z-10"/>
     </div>
   );
 };

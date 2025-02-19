@@ -1,30 +1,27 @@
 "use client"
 import React, { useState } from "react";
 import PublicAPI from "./content/publicAPI";
-import Introduction from "./content/introduction";
-import Quickstart from "./content/quickstart";
-import DeveloperGuide from "./content/developerGuide";
 const data = {
   publicAPI: {
     id: 1,
     title: "Public API",
     content: <PublicAPI />,
   },
-  introduction: {
-    id: 2,
-    title: "Introduction",
-    content: <Introduction />
-  },
-  quickStart: {
-    id: 3,
-    title: "Quickstart",
-    content: <Quickstart />
-  },
-  developerGuide: {
-    id: 4,
-    title: "Developer Guide",
-    content: <DeveloperGuide />
-  },
+  // introduction: {
+  //   id: 2,
+  //   title: "Introduction",
+  //   content: <Introduction />
+  // },
+  // quickStart: {
+  //   id: 3,
+  //   title: "Quickstart",
+  //   content: <Quickstart />
+  // },
+  // developerGuide: {
+  //   id: 4,
+  //   title: "Developer Guide",
+  //   content: <DeveloperGuide />
+  // },
 };
 
 type DataKeys = keyof typeof data;
@@ -33,7 +30,6 @@ const Main = () => {
   const [selectedKey, setSelectedKey] = useState<DataKeys>("publicAPI");
   return (
     <div className="flex">
-      {/* Sidebar */}
       <div className="w-[16dvw]  fixed  text-white">
         {Object.entries(data).map(([key, { title }]) => (
           <button
@@ -50,14 +46,10 @@ const Main = () => {
         ))}
       </div>
 
-      {/* Contenido dinámico */}
-      <div className="ml-[18dvw] w-[57dvw] pb-10">
+      <div className="ml-[18dvw] w-[50dvw] pb-10">
         <div className="mt-4">{data[selectedKey].content}</div>
       </div>
 
-      <div className="w-[16dvw] right-0 top-0 h-full flex fixed items-center justify-center">
-        <p>Content</p>
-      </div>
     </div>
   );
 };
