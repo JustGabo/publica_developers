@@ -3,7 +3,7 @@ import CodeBox from "../codeBox";
 
 interface Section {
   title: string;
-  ref: React.RefObject<HTMLDivElement>;
+  ref: React.RefObject<HTMLDivElement | null>;
 }
 
 const PublicAPI = () => {
@@ -38,7 +38,7 @@ const PublicAPI = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
     if (ref.current) {
       window.scrollTo({ top: ref.current.offsetTop - 100, behavior: "smooth" });
     }

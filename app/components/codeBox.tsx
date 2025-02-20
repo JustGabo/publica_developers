@@ -1,5 +1,5 @@
 interface Props{
-  data: Record<string, any>
+  data: Record<string, unknown>
 }
 
 export default function CodeBox({ data }: Props) {
