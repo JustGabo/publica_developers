@@ -4,7 +4,7 @@ import PublicAPI from "./content/publicAPI";
 const data = {
   publicAPI: {
     id: 1,
-    title: "Public API",
+    title: "API Pública",
     content: <PublicAPI />,
   },
   // introduction: {

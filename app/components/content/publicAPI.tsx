@@ -1,16 +1,21 @@
 import React, { useRef, useState, useEffect } from "react";
 import CodeBox from "../codeBox";
 
+interface Section {
+  title: string;
+  ref: React.RefObject<HTMLDivElement>;
+}
+
 const PublicAPI = () => {
-  const sections = [
-    { title: "Public API allows you to work with Publica in headless mode", ref: useRef(null) },
-    { title: "Get all added integrations", ref: useRef(null) },
-    { title: "Upload a new file (from-data)", ref: useRef(null) },
-    { title: "Create / update a post", ref: useRef(null) },
-    { title: "Delete a post", ref: useRef(null) },
+  const sections: Section[] = [
+    { title: "La API Pública te permite trabajar con Publica en modo headless", ref: useRef<HTMLDivElement>(null) },
+    { title: "Obtener todas las integraciones añadidas", ref: useRef<HTMLDivElement>(null) },
+    { title: "Subir un nuevo archivo (form-data)", ref: useRef<HTMLDivElement>(null) },
+    { title: "Crear / actualizar una publicación", ref: useRef<HTMLDivElement>(null) },
+    { title: "Eliminar una publicación", ref: useRef<HTMLDivElement>(null) },
   ];
 
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +38,7 @@ const PublicAPI = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (ref) => {
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
       window.scrollTo({ top: ref.current.offsetTop - 100, behavior: "smooth" });
     }
@@ -43,14 +48,14 @@ const PublicAPI = () => {
     <main>
       <div className="gap-5 h-full w-[55dvw]">
         <div className="h-full flex flex-col  items-start gap-14">
-          <span className="text-lg font-semibold text-neutral-400">Public API</span>
+          <span className="text-lg font-semibold text-neutral-400">API Pública</span>
           <h1 ref={sections[0].ref} className="text-4xl font-semibold">
-            Public API allows you to work with Publica in headless mode
+            La API Pública te permite trabajar con Publica en modo headless
           </h1>
           <div className="flex flex-col gap-28 w-[100%]">
           <div ref={sections[1].ref} className="flex flex-col  gap-5">
             <p className="text-neutral-300 text-2xl font-semibold">
-              Get all added integrations
+              Obtener todas las integraciones añadidas
             </p>
             <div className="w-full p-5 rounded-md bg-neutral-950 border border-neutral-600">
               <pre className="flex items-center gap-2">
@@ -58,7 +63,7 @@ const PublicAPI = () => {
                 <p>https://api.publica.com/public/v1/integrations</p>
               </pre>
             </div>
-            <p className="text-lg">Response:</p>
+            <p className="text-lg">Respuesta:</p>
             <CodeBox
               data={{
                 endpoint: "GET /integrations",
@@ -84,7 +89,7 @@ const PublicAPI = () => {
 
           <div ref={sections[2].ref} className="flex flex-col w-full gap-5">
             <p className="text-neutral-300 text-2xl font-semibold">
-              Upload a new file (from-data)
+              Subir un nuevo archivo (form-data)
             </p>
             <div className="w-full p-5 rounded-md bg-neutral-950 border border-neutral-600">
               <pre className="flex items-center gap-2">
@@ -92,7 +97,7 @@ const PublicAPI = () => {
                 <p>https://api.publica.com/public/v1/upload</p>
               </pre>
             </div>
-            <p className="text-lg">Response:</p>
+            <p className="text-lg">Respuesta:</p>
             <CodeBox
               data={{
                 endpoint: "POST /upload",
@@ -113,7 +118,7 @@ const PublicAPI = () => {
 
           <div ref={sections[3].ref} className="flex flex-col w-full gap-5">
             <p className="text-neutral-300 text-2xl font-semibold">
-              Create / update a post
+              Crear / actualizar una publicación
             </p>
             <div className="w-full p-5 rounded-md bg-neutral-950 border border-neutral-600">
               <pre className="flex items-center gap-2">
@@ -152,7 +157,7 @@ const PublicAPI = () => {
               }}
             />
 
-            <p className="text-lg">Response:</p>
+            <p className="text-lg">Respuesta:</p>
             <CodeBox
               data={{
                 id: "e639003b-f727-4a1e-87bd-74a2c48ae41e",
@@ -164,7 +169,7 @@ const PublicAPI = () => {
 
           <div ref={sections[4].ref} className="flex flex-col w-full gap-5">
             <p className="text-neutral-300 text-2xl font-semibold">
-              Delete a post
+              Eliminar una publicación
             </p>
             <div className="w-full p-5 rounded-md bg-neutral-950 border border-neutral-600">
               <pre className="flex items-center gap-2">
@@ -172,7 +177,7 @@ const PublicAPI = () => {
                 <p>https://api.publica.com/public/v1/posts/:id</p>
               </pre>
             </div>
-            <p className="text-lg">Response:</p>
+            <p className="text-lg">Respuesta:</p>
             <CodeBox
               data={{
                 id: "e639003b-f727-4a1e-87bd-74a2c48ae41e",
@@ -187,7 +192,7 @@ const PublicAPI = () => {
       </div>
       
       <div className="w-[20dvw] left-[77dvw] top-[19dvh] h-full fixed">
-        <p className="text-neutral-400 text-lg font-semibold">On this page</p>
+        <p className="text-neutral-400 text-lg font-semibold">En esta página</p>
         <ul className="mt-4 space-y-2">
           {sections.map(({ title, ref }) => (
             <li key={title}>
