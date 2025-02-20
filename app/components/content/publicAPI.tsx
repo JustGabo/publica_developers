@@ -3,7 +3,7 @@ import CodeBox from "../codeBox";
 
 const PublicAPI = () => {
   const sections = [
-    { title: "Public API allows you to work with Postiz in headless mode", ref: useRef(null) },
+    { title: "Public API allows you to work with Publica in headless mode", ref: useRef(null) },
     { title: "Get all added integrations", ref: useRef(null) },
     { title: "Upload a new file (from-data)", ref: useRef(null) },
     { title: "Create / update a post", ref: useRef(null) },
@@ -45,7 +45,7 @@ const PublicAPI = () => {
         <div className="h-full flex flex-col  items-start gap-14">
           <span className="text-lg font-semibold text-neutral-400">Public API</span>
           <h1 ref={sections[0].ref} className="text-4xl font-semibold">
-            Public API allows you to work with Postiz in headless mode
+            Public API allows you to work with Publica in headless mode
           </h1>
           <div className="flex flex-col gap-28 w-[100%]">
           <div ref={sections[1].ref} className="flex flex-col  gap-5">
@@ -67,7 +67,7 @@ const PublicAPI = () => {
                     id: "asdfasf2342dsaxfcsf",
                     name: "Nevo David",
                     identifier: "facebook",
-                    picture: "https://upload.postiz.com/picture.png",
+                    picture: "https://upload.Publica.com/picture.png",
                     disabled: false,
                     profile: "nevo_david",
                     customer: {
